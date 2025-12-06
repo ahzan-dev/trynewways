@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TryNewWays — Creative tools & experiments</title>
+  <meta name="description" content="TryNewWays — experiments, tools and practical guides to build smarter workflows, ship faster, and test new ideas." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TryNewWays — Creative tools & experiments" />
+  <meta property="og:description" content="Experiments, tools and practical guides to build smarter workflows, ship faster, and test new ideas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://trynewways.com" />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f172a;
+      --muted:#9aa4b2;
+      --accent:#7c5cff;
+      --accent-2:#00d4ff;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #071025 0%, #081226 40%, #04121a 100%);
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{width:100%;max-width:var(--max-width)}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:36px
+    }
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{
+      width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:700;font-family:var(--mono);
+      box-shadow:0 6px 20px rgba(124,92,255,0.12), 0 2px 6px rgba(0,212,255,0.06);
+    }
+    .logo h1{font-size:18px;margin:0}
+    .logo p{font-size:12px;margin:0;color:var(--muted)}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    nav a.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:10px;color:#041226;font-weight:600}
+
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:48px
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:28px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)
+    }
+
+    .hero .left h2{margin:0 0 12px 0;font-size:34px}
+    .hero .left p.lead{margin:0 0 20px;color:var(--muted);font-size:15px}
+
+    .features{display:flex;gap:14px;flex-wrap:wrap}
+    .chip{background:var(--glass);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .cta-row{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041226}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* right column - preview */
+    .preview{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      min-height:260px;display:flex;flex-direction:column;gap:12px
+    }
+    .preview .stat{display:flex;justify-content:space-between;align-items:center}
+    .k{font-size:28px;font-weight:700}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* Features grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .feature h4{margin:0 0 8px 0}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px 0}
+
+    /* Pricing */
+    .pricing{display:flex;gap:14px}
+    .plan{flex:1;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .plan h3{margin:0 0 10px 0}
+    .plan .price{font-size:22px;font-weight:800}
+    .plan ul{padding-left:18px;color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:40px;padding:24px;border-radius:12px;background:transparent;display:flex;justify-content:space-between;align-items:center}
+
+    /* forms */
+    form{display:flex;gap:8px}
+    input[type="email"], input[type="text"]{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:10px;color:inherit;min-width:0}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(1,1fr)}
+      .pricing{flex-direction:column}
+      header{flex-direction:column;align-items:flex-start}
+      nav{margin-top:10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">TNW</div>
+        <div>
+          <h1>TryNewWays</h1>
+          <p>trynewways.com</p>
+        </div>
+      </div>
+      <nav aria-label="Top navigation">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#get-started">Get started</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card left">
+          <h2>Try new ways to build, test, and ship faster.</h2>
+          <p class="lead">Practical experiments, tools, and concise guides for developers and founders who prefer results over noise. Ship small, learn fast.</p>
+
+          <div class="features" aria-hidden>
+            <span class="chip">Workflows</span>
+            <span class="chip">Automation</span>
+            <span class="chip">Playbooks</span>
+            <span class="chip">Micro SaaS</span>
+            <span class="chip">Prototypes</span>
+          </div>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" id="tryDemo">Try demo</button>
+            <button class="btn btn-outline" id="learnMore">Learn more</button>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:13px">
+            <strong>Early access:</strong> Sign up to get monthly experiment digests and tool releases.
+            <form id="newsletter" style="margin-top:10px" onsubmit="return false;">
+              <input type="email" id="emailInput" placeholder="your@company.com" aria-label="Email address" required />
+              <button class="btn btn-primary" style="padding:10px 12px">Subscribe</button>
+            </form>
+            <div id="newsletterMsg" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
+          </div>
+        </div>
+
+        <aside class="preview card">
+          <div class="stat"><div>
+            <div class="muted">Live experiments</div>
+            <div class="k">18</div>
+          </div><div class="muted">Updated monthly</div></div>
+
+          <div style="height:1px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));margin:6px 0;border-radius:4px"></div>
+
+          <div class="stat"><div>
+            <div class="muted">Tools published</div>
+            <div class="k">6</div>
+          </div><div class="muted">Open-source</div></div>
+
+          <div style="margin-top:auto;color:var(--muted);font-size:13px">Try a small demo — click "Try demo" to see a quick interactive example.</div>
+        </aside>
+      </section>
+
+      <section id="features">
+        <div class="section-title">
+          <h3 style="margin:0">What we do</h3>
+          <div class="muted">Practical, no-fluff experiments</div>
+        </div>
+
+        <div class="grid">
+          <article class="feature">
+            <h4>Automate repetitive work</h4>
+            <p>Small scripts, templates and playbooks to automate tedious tasks: scraping, syncs, and deploy chores.</p>
+          </article>
+
+          <article class="feature">
+            <h4>Actionable guides</h4>
+            <p>Step-by-step writeups focused on outcomes — what to build, why, and how to measure success.</p>
+          </article>
+
+          <article class="feature">
+            <h4>Micro SaaS templates</h4>
+            <p>Starter templates for building focused products that ship quickly and test ideas with real users.</p>
+          </article>
+
+          <article class="feature">
+            <h4>Mini case studies</h4>
+            <p>Short, honest rundowns of experiments that worked (and those that didn't).</p>
+          </article>
+
+          <article class="feature">
+            <h4>Open tooling</h4>
+            <p>Reusable scripts and components that you can fork and adapt to your stack.</p>
+          </article>
+
+          <article class="feature">
+            <h4>Community</h4>
+            <p>Weekly updates and a small list of practical projects to collaborate on.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div class="section-title">
+          <h3 style="margin:0">Pricing</h3>
+          <div class="muted">Pick what fits — no surprises.</div>
+        </div>
+
+        <div class="pricing">
+          <div class="plan">
+            <h3>Free</h3>
+            <div class="price">$0</div>
+            <ul>
+              <li>Access to experiments archive</li>
+              <li>Community updates</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn btn-primary">Get started</button></div>
+          </div>
+
+          <div class="plan">
+            <h3>Pro</h3>
+            <div class="price">$12 / month</div>
+            <ul>
+              <li>Early access to tools</li>
+              <li>Templates & snippets</li>
+              <li>Email support</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn btn-primary">Subscribe</button></div>
+          </div>
+
+          <div class="plan">
+            <h3>Agency</h3>
+            <div class="price">Contact</div>
+            <ul>
+              <li>Team licenses</li>
+              <li>Priority support</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn btn-outline">Contact us</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:28px">
+        <div class="section-title"><h3 style="margin:0">Get in touch</h3><div class="muted">Questions, partnerships, or custom work</div></div>
+
+        <div class="card" style="display:flex;gap:16px;flex-wrap:wrap">
+          <form id="contactForm" style="flex:1;min-width:280px;" onsubmit="return false;">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <input type="text" id="name" placeholder="Your name" required />
+              <input type="email" id="email" placeholder="Email" required />
+              <input type="text" id="subject" placeholder="Subject" required />
+              <textarea id="message" rows="5" placeholder="Message" style="resize:vertical;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit"></textarea>
+              <div style="display:flex;gap:10px;justify-content:flex-end">
+                <button class="btn btn-primary">Send message</button>
+                <button class="btn btn-outline" id="resetContact">Reset</button>
+              </div>
+            </div>
+          </form>
+
+          <div style="min-width:260px;flex:0 0 320px">
+            <div style="margin-bottom:12px;color:var(--muted)">Prefer email? <br><a href="mailto:hello@trynewways.com" style="color:var(--accent);text-decoration:none">hello@trynewways.com</a></div>
+            <div style="color:var(--muted);font-size:13px">Location: Remote</div>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">Legal: <a href="#" style="color:var(--muted);text-decoration:underline">Privacy</a> · <a href="#" style="color:var(--muted);text-decoration:underline">Terms</a></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="muted">© <span id="year"></span> TryNewWays · <span class="muted">Built for experiments — ship small, learn fast.</span></div>
+      <div class="muted">Follow: <a href="#" style="color:var(--muted);text-decoration:none;margin-left:8px">Twitter</a> · <a href="#" style="color:var(--muted);text-decoration:none;margin-left:8px">GitHub</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // small interactive behavior
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // demo handler
+    document.getElementById('tryDemo').addEventListener('click', ()=>{
+      alert('Demo: imagine a small interactive tool here — replace with your widget or embed.');
+    });
+
+    // newsletter
+    const newsletter = document.getElementById('newsletter');
+    const emailInput = document.getElementById('emailInput');
+    const newsletterMsg = document.getElementById('newsletterMsg');
+    newsletter.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if(!email || !email.includes('@')){newsletterMsg.textContent = 'Please enter a valid email.'; return}
+      // Here you would POST to your backend or mailing provider
+      newsletterMsg.textContent = 'Thanks — we\'ll be in touch!';
+      emailInput.value = '';
+    });
+
+    // contact form (no backend included)
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subj = document.getElementById('subject').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if(!name||!email||!subj||!msg){alert('Fill all fields');return}
+      // Replace this with a fetch() to your server endpoint
+      console.log({name,email,subj,msg});
+      alert('Thanks — message captured locally in the console. Hook this to your backend to receive messages.');
+      contactForm.reset();
+    });
+
+    document.getElementById('resetContact').addEventListener('click', (e)=>{e.preventDefault();contactForm.reset();});
+
+    // light accessibility enhancement: keyboard focus styles
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Tab') document.body.classList.add('show-focus');
+    });
+  </script>
+</body>
+</html>
